@@ -2,6 +2,7 @@ import express from "express";
 import router from "./routes/user.js";
 import { connectDatabase } from "./database/database.js";
 import { config } from "dotenv";
+import cors from "cors"
 
 export const server = express();
 
@@ -9,7 +10,12 @@ export const server = express();
 //using routes
 server.use(express.json());
 server.use(router);
-
+server.use(
+  cors({
+  origin : "*",
+  methods: ["GET","PUT","DELETE","POST"],
+  })
+)
 
 config({
   path : "./database/config.env"
