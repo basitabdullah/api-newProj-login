@@ -19,7 +19,7 @@ export const register = async (req, res) => {
 
   res.json({
     status: "true",
-    msg: "registered",
+    msg: "Registered Successfully",
   });
 };
 
@@ -31,10 +31,10 @@ export const login = async (req, res) => {
   if (!user)
     return res.json({
       status: "false",
-      msg: "Not found!",
+      msg: "User Not found!",
     });
   res.json({
     status: "true",
-    msg: "Logged In",
+    msg: "Logged In Successfully",
   });
 };

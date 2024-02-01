@@ -2,25 +2,25 @@ import express from "express";
 import router from "./routes/user.js";
 import { connectDatabase } from "./database/database.js";
 import { config } from "dotenv";
-import cors from "cors"
+import cors from "cors";
 
 export const server = express();
 
+//midddleware
 server.use(
   cors({
-  origin : "*",
-  methods: ["GET","PUT","DELETE","POST"],
+    origin: "*",
+    methods: ["GET", "PUT", "DELETE", "POST"],
+    credentials: true,
   })
-)
-//midddleware
+);
 //using routes
 server.use(express.json());
 server.use(router);
 
-
 config({
-  path : "./database/config.env"
-})
+  path: "./database/config.env",
+});
 
 connectDatabase();
 
