@@ -6,16 +6,17 @@ import cors from "cors"
 
 export const server = express();
 
-//midddleware
-//using routes
-server.use(express.json());
-server.use(router);
 server.use(
   cors({
   origin : "*",
   methods: ["GET","PUT","DELETE","POST"],
   })
 )
+//midddleware
+//using routes
+server.use(express.json());
+server.use(router);
+
 
 config({
   path : "./database/config.env"
